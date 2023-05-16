@@ -83,7 +83,7 @@ async function loginUser(){
                     console.log("Contraseña y usuario Correcto");
                     saveCookie(data["data"]["_id"])
                     console.log(data);
-                    window.location.href = "./into-page/page.html";
+                    window.location.href = ".page.html";
                 }
             }catch{
                 console.log("Error usuario o contraseña incorrecto")
