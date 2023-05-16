@@ -1,14 +1,4 @@
-@font-face {
-    font-family: "Karantina";
-    src: url(../src/Karantina-Regular.ttf) format('truetype');
-    font-weight: normal;
-}
-@font-face {
-    font-family: "Karantina";
-    src: url(../src/Karantina-Bold.ttf) format('truetype');
-    font-weight: bold;
-}
-
+@import "./comunStyle.css";
 
 :root {
     --background-color: #3D3A3A;

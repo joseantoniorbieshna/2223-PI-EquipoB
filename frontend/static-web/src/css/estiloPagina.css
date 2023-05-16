@@ -1,19 +1,6 @@
-@font-face {
-    font-family: "Karantina";
-    src: url(../src/Karantina-Regular.ttf) format('truetype');
-    font-weight: normal;
-}
-@font-face {
-    font-family: "Karantina";
-    src: url(../src/Karantina-Bold.ttf) format('truetype');
-    font-weight: bold;
-}
+@import "./comunStyle.css";
 
-:root {
-    --background-nav: #272728;
-    --color-logo: #FF8080;
-    --blue-color: #00D1FF;
-  }
+
 /*COLORES*/
 .texto_rosa{
     color:var(--color-logo);
@@ -73,7 +60,7 @@ header a .logo_circle .logo_play{
 .container{
     width: 100%;
     min-height: 100%;
-    background-image: url(../src/landing_desk_res.jpg);
+    background-image: var(--background-image-pc);
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
