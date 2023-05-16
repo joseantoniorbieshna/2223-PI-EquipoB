@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estiloPagina.css">
+    <link rel="stylesheet" href="login-register.css">
+    <script src="funciones.js" > </script>
+    
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="#inicia">
+            <div class="logo_circle">
+                <img src="../src/play.png" class="logo_play"></img>
+            </div>
+            <p class="logotext">Música</p>
+        </a>
+    </header>
+    
+    <div class="login">
+        <input type="button" value="X" class="close">
+        <h1 class="title_login">LOGIN</h1>
+        <div class="login_form">
+            <input type="text" placeholder="Usuario" class="user">
+            <input type="password" placeholder="Contraseña" class="password">
+            <input type="button" value="INICIAR SESION" class="enviar" onclick="loginUser()">
+        </div>
+    </div>
+    
+    <div class="register">
+        <input type="button" value="X" class="close">
+        <h1 class="title_register">REGISTRARSE</h1>
+        <div class="register_form">
+            <input type="text" placeholder="Correo electronico" class="email" >
+            <input type="text" placeholder="Usuario" class="user">
+            <input type="password" placeholder="Contraseña" class="password">
+            <input type="button" value="REGISTRARSE" class="enviar" onclick="createUser()">
+        </div>
+    </div>
+    
+
+    
+    <div class="container">
+        <div class="left_part_container">
+            <p>TU REPRODUCTOR DE MÚSICA DE CONFIANZA. <br>
+                <span class="texto_rosa">REGISTRATE</span> PARA ESCUCHAR <br>
+                <span class="texto_azul">MUSICA SIN LIMITE</span>
+            </p>
+            <div class="session_container">
+                <a class="iniciar_sesion">INICIAR SESION</a>
+                <a class="registrate">REGISTRATE</a>
+            </div>
+        </div>
+        <div class="right_part_container">
+            <div class="big_circle">
+                <img src="../src/play.png" class="big_logo"></img>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script>
+    clickLoginAndRegis()
+    </script>
+</body>
+
+</html>

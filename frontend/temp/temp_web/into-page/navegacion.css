@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Karantina";
+    src: url(../../src/Karantina-Regular.ttf) format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Karantina";
+    src: url(../../src/Karantina-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+:root {
+    --background-nav: #272728;
+    --color-logo: #FF8080;
+    --blue-color: #00D1FF;
+  }
+/*COLORES*/
+
+body,html{
+    height: 100%;
+}
+
+body{
+    /*user-select: none;*/
+    font-family: "Karantina";
+    font-weight: bold;
+    color: #fff;
+    background-color: black;
+    margin: 0;
+}
+/* HEADER*/
+header{
+    display: flex;
+    background-color: var(--background-nav);
+    width: 100%;
+    padding: 1rem 0rem;
+}
+header .logo{
+    display: flex;
+    text-decoration: none;
+}
+header .logo .logo_circle{
+    margin-left: 2rem;
+    background-color: var(--color-logo);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    display: inline-block;
+}
+header .logo .logotext{
+    color: white;
+    margin: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+header a .logo_circle .logo_play{
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    top: 0.5rem;
+    left: 0.8rem;
+    transform: rotate(90deg);
+}

@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "Karantina";
+    src: url(../../src/Karantina-Regular.ttf) format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Karantina";
+    src: url(../../src/Karantina-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+:root {
+    --background-nav: #272728;
+    --color-logo: #FF8080;
+    --blue-color: #00D1FF;
+  }
+
+  html,body{
+    margin: 0;
+    height: 100%;
+  }
+  body{
+    display: flex;
+    flex-direction: column;
+  }
+
+  main{
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .categorias{
+    display: inline-block;
+    text-align: center;
+    background-color: var(--color-logo);
+    height: 100%;
+    width: 25%;
+  }
+  .categorias ol li{
+    text-align: left;
+    font-size: 2rem;
+  }
+  .music_container{
+    width: 70%;
+    background-color: white;
+  }
+
+
+  .music_container p{
+    margin: 0;
+  }
+
+
+  .music_container{
+    background-color: white;
+    flex-grow: 1;
+  }

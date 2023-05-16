@@ -1,0 +1,189 @@
+@font-face {
+    font-family: "Karantina";
+    src: url(../src/Karantina-Regular.ttf) format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Karantina";
+    src: url(../src/Karantina-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+:root {
+    --background-nav: #272728;
+    --color-logo: #FF8080;
+    --blue-color: #00D1FF;
+  }
+/*COLORES*/
+.texto_rosa{
+    color:var(--color-logo);
+}
+.texto_azul{
+    color: var(--blue-color);
+}
+
+body,html{
+    height: 100%;
+}
+
+body{
+    /*user-select: none;*/
+    font-family: "Karantina";
+    font-weight: bold;
+    color: #fff;
+    background-color: black;
+    margin: 0;
+}
+/* HEADER*/
+header{
+    display: flex;
+    background-color: var(--background-nav);
+    width: 100%;
+    padding: 1rem 0rem;
+}
+header .logo{
+    display: flex;
+    text-decoration: none;
+}
+header .logo .logo_circle{
+    margin-left: 2rem;
+    background-color: var(--color-logo);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    display: inline-block;
+}
+header .logo .logotext{
+    color: white;
+    margin: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+header a .logo_circle .logo_play{
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    top: 0.5rem;
+    left: 0.8rem;
+    transform: rotate(90deg);
+}
+/* CONTAINER */
+.container{
+    width: 100%;
+    min-height: 100%;
+    background-image: url(../src/landing_desk_res.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-position-y: 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+}
+
+
+    /*LEFT CONTAINER*/
+a{
+    cursor: pointer;
+}
+.container .left_part_container{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+}
+.container .left_part_container p{
+    font-family: "Karantina";
+    font-weight: normal;
+    font-size: 3rem;
+    background-color: #2d2424be;
+    border-radius: 20px;
+    padding: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+.container .left_part_container .session_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.container .left_part_container .session_container a{
+    font-family: "Karantina";
+    font-weight: normal;
+    font-size: 3rem;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    margin: 0;
+}
+.container .left_part_container .session_container .iniciar_sesion{
+    background-color: var(--color-logo);
+    color: black;
+    
+}
+.container .left_part_container .session_container .iniciar_sesion:hover{
+    transform: scale(1.05);
+    
+}
+.container .left_part_container .session_container .registrate{
+    background-color: black;
+    color: white;
+}
+.container .left_part_container .session_container .registrate:hover{
+    transform: scale(1.05);
+}
+    /*RIGHT CONTAINER*/
+.container .right_part_container {
+    display: flex;
+    justify-content: center;
+}
+
+.container .right_part_container .big_circle{
+    align-content: center;
+    background-color: var(--color-logo);
+    width: 40vw;
+    height: 40vw;
+    border-radius: 100rem;
+    margin:1rem;
+    transition: 0.5s ease-in-out;
+}
+.container .right_part_container .big_circle .big_logo{
+
+    height: 20vw;
+    width: 20vw;
+    position: relative;
+    top: 10vw;
+    left: 12vw;
+    transform: rotate(80deg);
+    filter: drop-shadow(1rem -1rem 0rem #0000003d);
+    transition: 0.5s ease-in-out;
+    
+}
+.container .right_part_container .big_circle .big_logo:hover{
+    transform: rotate(90deg);
+    transition: 0.5s ease-in-out;
+}
+
+
+
+@media only screen and (min-width: 1500px) {
+    .container .right_part_container .big_circle{
+        width: 30vw;
+        height: 30vw;
+    }
+    .container .right_part_container .big_circle .big_logo{
+        height: 15vw;
+        width: 16vw;
+        top: 7.5vw;
+        left: 9vw;
+        
+    }
+
+}
