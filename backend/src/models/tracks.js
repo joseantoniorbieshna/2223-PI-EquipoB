@@ -8,10 +8,12 @@ const tracksSchema = new mongoose.Schema(
     artist:{
         type: String
     },
-    Album:{
-        type:{
-            type: String
-        }
+    category:{
+        type:String
+    }
+    ,
+    album:{
+        type: String
     },
     song:{
         type: String

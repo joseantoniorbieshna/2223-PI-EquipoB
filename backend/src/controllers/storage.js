@@ -8,7 +8,8 @@ const PUBLIC_URL = process.env.PUBLIC_URL
  */
 const createStorage = async (req,res)=>{
     console.log("Petición storage")
-    const {body,file} = req
+    const {body,hola,file} = req
+    console.log(body);
     const fileObject= {
         url:`${PUBLIC_URL}/${file.filename}`,
         filename:file.filename
