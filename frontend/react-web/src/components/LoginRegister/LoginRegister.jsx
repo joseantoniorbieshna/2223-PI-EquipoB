@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {createUser,loginUser} from "../../services/queryUser"
 import "./LoginRegister.css"
 
 
@@ -8,8 +9,10 @@ export default function LoginRegister({miTipo,isVisibility,togleVisibility}){
         event.preventDefault()
         const {email,user,password} = event.target
         if(email && user && password){
+            createUser(email.value,user.value,password.value)
             console.log(email.value,user.value,password.value);
         }else if(user && password){
+            loginUser(user.value,password.value);
             console.log(user.value,password.value);
         }
     }
