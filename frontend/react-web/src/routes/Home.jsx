@@ -1,9 +1,13 @@
+import Header from "../components/Header/Header";
+import MusicContainer from "../components/MusicContainer/MusicContainer";
+import "./Home.css"
 
 export default function Home() {
 
   return (
     <>
-    <h1>HOLA PAGINA MUSICA</h1>
+    <Header/>
+    <MusicContainer/>
     </>
   )
 }
