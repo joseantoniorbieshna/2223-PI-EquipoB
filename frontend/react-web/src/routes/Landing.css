@@ -1,4 +1,4 @@
-@import "./components/comunStyle.css";
+@import "../components/comunStyle.css";
 
 body,html,#root{
   height: 100%;

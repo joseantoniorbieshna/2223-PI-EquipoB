@@ -1,5 +1,6 @@
 import getURI from "../utils/utils"
 import {saveCookie} from "../utils/cookies"
+import { Navigate } from "react-router-dom";
 
 export async function createUser(emailData,userData,passwordData){
     const response = await fetch(`${getURI()}/users`, {
@@ -38,8 +39,9 @@ export async function loginUser(userData,passwordData){
                 if(data["data"]["_id"]){
                     console.log("Contraseña y usuario Correcto");
                     saveCookie(data["data"]["_id"])
+                    location.reload()
                 }
-            }catch{
+            }catch(e){
                 console.log("Error usuario o contraseña incorrecto")
             }
     }

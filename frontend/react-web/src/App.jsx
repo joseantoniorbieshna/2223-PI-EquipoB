@@ -1,13 +1,9 @@
-import Header from './components/Header/Header'
-import MainLanding from './components/MainLanding/MainLanding'
-import './App.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Landing from './routes/Landing'
 
 export default function App() {
 
   return (
-    <>
-    <Header></Header>
-    <MainLanding></MainLanding>
-    </>
+  <></>
   )
 }
