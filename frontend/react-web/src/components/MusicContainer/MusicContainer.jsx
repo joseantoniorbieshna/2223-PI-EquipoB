@@ -12,8 +12,16 @@ export default function MusicContainer(){
             </ol>
         </div>
         <div className="music_manage_container">
+
+            <form className="mybuscador" action="">
+                <input className="texto" type="text" placeholder="introduce cancion"/>
+                <input className="enviar" type="submit" value="BUSCAR" />
+            </form>
+            
             <div className="music_container" >
-                <div style={{backgroundColor: 'green', height: '10%', width: "50%"}}>sadf</div>
+                <div className="emptygap"></div>
+                <div className="gap_top"></div>
+                <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>sadf</div>
                 <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>sadf</div>
                 <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>daf</div>
                 <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>sa</div>
@@ -29,10 +37,11 @@ export default function MusicContainer(){
                 <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>safd</div>
                 <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>asfdsa</div>
                 <div style={{backgroundColor: 'green', height: '10%', width: "100%"}}>asfdas</div>
-                
+                <div className="gap_down"></div>
 
             </div>
-            <div className="reproductor"></div>
+            <div className="reproductor">
+            </div>
         </div>
     </main>
     )

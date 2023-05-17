@@ -21,14 +21,39 @@ main{
 .music_manage_container{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 75%;
     background-color: rgb(255, 230, 0);
     color: black;
     flex-grow: 1;
 }
 
+.mybuscador{
+    position: fixed;
+    bottom: 20%;
+    left: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 65%;
+}
+.mybuscador input{
+    height: 3rem;
+    border: 0;
+
+}
+.mybuscador .texto{
+    /*border-radius: 100rem 0 0 100rem;*/
+    width: 80%;
+}
+.mybuscador .enviar{
+    background-color: white;
+    border-left: 3px solid black;
+    /*border-radius: 0 100rem 100rem 0;*/
+    width: 20%;
+}
+
 .music_container{
-    height: 80%;
+    height: 100%;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
@@ -36,11 +61,20 @@ main{
 }
 
 .reproductor{
-    background-color: blue;
-    height: 15%;
-    width: 80%;
-    margin: auto;
+    position: fixed;
+    bottom: 3%;
+    left: 30%;
     display: flex;
-    justify-content: center;
-    border-radius: 100px;
+    justify-content: flex-start;
+    height: 15%;
+    width: 65%;
+    background-color: blue;
+    border-radius: 10px;
+    /*Lateral 25 75 libre -- */
+}
+.gap_top{
+    height: 10%;
+}
+.gap_down{
+    height: 20%;
 }
