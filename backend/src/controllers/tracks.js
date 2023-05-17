@@ -21,17 +21,17 @@ export async function getTracksBySearch (req,res){
 
 export async function createTrack(req,res){
     console.log("peticion crear tracks");
-    const {file,body} = req
+    const {files,body} = req
     const {name,artist,category,album} = body
-    if(name && artist && file && category && album){
+    if(name && artist && files["song"] && files["album"] && category){
         try{
-            const data = await tracksModel.create({name: name,artist:artist,category: category,song: file.filename, album: album})
-            res.send({data:"Creado exitosamente"})
+            const data = await tracksModel.create({name: name,artist: artist,category: category,song: files.song[0].filename, album: files.album[0].filename})
+            res.send({data})
             return
         }catch{
             res.send({err:"error al crear track"})
-
+            return
         }
     }
-    res.send({data:1})
+    res.send({err:"err falta algun dato"})
 }

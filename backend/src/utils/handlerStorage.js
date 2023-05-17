@@ -7,7 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const storage = multer.diskStorage({
-    destination:function(req,file,callback){//la response es el archivo
+    destination:function(req,file,callback){
+        console.log(file.originalname);
         const pathStorage = `${__dirname}/../storage`
         callback(null,pathStorage) //Primer argumento error, y segundo el path
     },
