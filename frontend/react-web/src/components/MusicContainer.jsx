@@ -1,9 +1,27 @@
-import "./css/MusicContainer.css"
 import {Navigate} from "react-router-dom"
 import {getCookie} from "../utils/cookies"
+import SongContainer from "./SongContainer";
+import {getTracks} from "../services/queryTracks"
+import { useState,useEffect } from "react";
 
 export default function MusicContainer(){
+    
+    const [songs,setSongs] = useState([])
     const session = getCookie()?true:false;
+    const fetchTracks = ()=>{
+    getTracks()
+    .then((res)=>{
+        setSongs(res.data)
+    })
+    .catch(console.log("error"))
+    }
+
+
+
+    useEffect(()=>{
+        fetchTracks()
+    },[])
+
     return(
         <main>
             {!session &&( <Navigate to="/" replace={true} />)}
@@ -21,24 +39,17 @@ export default function MusicContainer(){
                 <input className="texto" type="text" placeholder="introduce cancion"/>
                 <input className="enviar" type="submit" value="BUSCAR" />
             </form>
-            
-            <div className="music_container" >
-                <div className="gap_top"></div>
+                    <div className="music_container">
+                        <div className="top_gap"> </div>
+                        
+                        {songs.map((value,index)=>{
+                            return <SongContainer nameSong={value.name}nameArtist={value.artist}actualKey={index}></SongContainer>
+                        })}
 
-
-                <div className="songs_container">
-                    <div className="song_container">
-                        <p className="song_title">TITULO MUSICA</p>
-                        <p className="song_artist">NOMBRE ARTISTA</p>
+                        <div className="bottom_gap"></div>
                     </div>
-                           <div className="song_container">
-                        <p className="song_title">TITULO MUSICA</p>
-                        <p className="song_artist">NOMBRE ARTISTA</p>
-                    </div>
-                </div>
-                <div className="gap_down"></div>
-            </div>
-            <div className="reproductor">
+                    <div className="reproductor">
+                
             </div>
         </div>
     </main>

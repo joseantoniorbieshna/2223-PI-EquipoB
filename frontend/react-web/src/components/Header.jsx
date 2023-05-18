@@ -1,6 +1,5 @@
 import React from "react";
 import playLogo from "../assets/play.png"
-import './css/Header.css'
 
 export default function Header(){
     return(

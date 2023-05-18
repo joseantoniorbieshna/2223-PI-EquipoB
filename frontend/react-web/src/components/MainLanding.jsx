@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import playLogo from "../assets/play.png"
-import "./css/MainLanding.css"
 import Login from "./LoginRegister";
 import LoginRegister from "./LoginRegister";
 
