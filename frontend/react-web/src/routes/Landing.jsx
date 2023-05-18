@@ -1,5 +1,5 @@
-import Header from '../components/Header/Header'
-import MainLanding from '../components/MainLanding/MainLanding'
+import Header from '../components/Header'
+import MainLanding from '../components/MainLanding'
 import "./Landing.css"
 
 export default function Landing() {

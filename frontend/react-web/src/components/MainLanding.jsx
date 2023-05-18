@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import playLogo from "../../assets/play.png"
-import "./MainLanding.css"
-import Login from "../LoginRegister/LoginRegister";
-import LoginRegister from "../LoginRegister/LoginRegister";
+import playLogo from "../assets/play.png"
+import "./css/MainLanding.css"
+import Login from "./LoginRegister";
+import LoginRegister from "./LoginRegister";
 
-import { getCookie } from "../../utils/cookies";
+import { getCookie } from "../utils/cookies";
 import { Navigate } from "react-router-dom";
 
 export default function MainLanding(){

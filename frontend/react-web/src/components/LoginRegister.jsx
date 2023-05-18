@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {createUser,loginUser} from "../../services/queryUser"
-import "./LoginRegister.css"
+import {createUser,loginUser} from "../services/queryUser"
+import "./css/LoginRegister.css"
 
 
 export default function LoginRegister({miTipo,isVisibility,togleVisibility}){
@@ -10,10 +10,10 @@ export default function LoginRegister({miTipo,isVisibility,togleVisibility}){
         const {email,user,password} = event.target
         if(email && user && password){
             createUser(email.value,user.value,password.value)
-            console.log(email.value,user.value,password.value);
+            event.target.reset()
         }else if(user && password){
             loginUser(user.value,password.value);
-            console.log(user.value,password.value);
+            event.target.reset()
         }
     }
     
