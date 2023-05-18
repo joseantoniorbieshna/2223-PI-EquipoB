@@ -5,7 +5,7 @@ import {getTracks} from "../services/queryTracks"
 import { useState,useEffect } from "react";
 
 export default function MusicContainer(){
-    
+    const[isplay,setPlay]=useState(false)
     const [songs,setSongs] = useState([])
     const session = getCookie()?true:false;
     const fetchTracks = ()=>{
@@ -25,6 +25,7 @@ export default function MusicContainer(){
     return(
         <main>
             {!session &&( <Navigate to="/" replace={true} />)}
+            <audio src="https://manzdev.github.io/codevember2017/assets/eye-tiger.mp3" preload="auto" loop></audio>
         <div className="categorias">
             <h1>CATEGORIAS</h1>
             <ol>
@@ -40,7 +41,6 @@ export default function MusicContainer(){
                 <input className="enviar" type="submit" value="BUSCAR" />
             </form>
                     <div className="music_container">
-                        <div className="top_gap"> </div>
                         
                         {songs.map((value,index)=>{
                             return <SongContainer nameSong={value.name}nameArtist={value.artist}actualKey={index}></SongContainer>
@@ -49,8 +49,12 @@ export default function MusicContainer(){
                         <div className="bottom_gap"></div>
                     </div>
                     <div className="reproductor">
-                
-            </div>
+                        <button className="play_button" onClick={(event)=>{
+                            if(isplay){document.querySelector("audio").pause(); setPlay(false)}
+                            else{document.querySelector("audio").play();setPlay(true)}
+                            console.log("pene");
+                        }}>{isplay?"PAUSE":"PLAY"}</button>
+                    </div>
         </div>
     </main>
     )
