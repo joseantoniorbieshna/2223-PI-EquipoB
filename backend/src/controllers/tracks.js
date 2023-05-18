@@ -23,6 +23,7 @@ export async function createTrack(req,res){
     console.log("peticion crear tracks");
     const {files,body} = req
     const {name,artist,category,album} = body
+    console.log(body);
     if(name && artist && files["song"] && files["album"] && category){
         try{
             const data = await tracksModel.create({name: name,artist: artist,category: category,song: files.song[0].filename, album: files.album[0].filename})

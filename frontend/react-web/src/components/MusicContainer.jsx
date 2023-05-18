@@ -3,6 +3,7 @@ import {getCookie} from "../utils/cookies"
 import SongContainer from "./SongContainer";
 import {getTracks} from "../services/queryTracks"
 import { useState,useEffect } from "react";
+import {getURLMusic} from "../utils/utils"
 
 export default function MusicContainer(){
     const[isplay,setPlay]=useState(false)
@@ -25,7 +26,7 @@ export default function MusicContainer(){
     return(
         <main>
             {!session &&( <Navigate to="/" replace={true} />)}
-            <audio src="https://manzdev.github.io/codevember2017/assets/eye-tiger.mp3" preload="auto" loop></audio>
+
         <div className="categorias">
             <h1>CATEGORIAS</h1>
             <ol>
@@ -43,7 +44,7 @@ export default function MusicContainer(){
                     <div className="music_container">
                         
                         {songs.map((value,index)=>{
-                            return <SongContainer nameSong={value.name}nameArtist={value.artist}actualKey={index}></SongContainer>
+                            return <SongContainer nameSong={value.name}nameArtist={value.artist} linkSong={`${getURLMusic()}/${value.song}`} setPlay={setPlay} actualKey={index}></SongContainer>
                         })}
 
                         <div className="bottom_gap"></div>
@@ -52,8 +53,9 @@ export default function MusicContainer(){
                         <button className="play_button" onClick={(event)=>{
                             if(isplay){document.querySelector("audio").pause(); setPlay(false)}
                             else{document.querySelector("audio").play();setPlay(true)}
-                            console.log("pene");
                         }}>{isplay?"PAUSE":"PLAY"}</button>
+
+                        <audio src="https://manzdev.github.io/codevember2017/assets/eye-tiger.mp3" preload="auto"></audio>
                     </div>
         </div>
     </main>

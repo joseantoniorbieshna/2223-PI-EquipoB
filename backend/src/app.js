@@ -19,7 +19,10 @@ const app = express()
 //MiddleWare = Algo que se pone en medio de la request y la procesa
 app.use(cors())
 app.use(express.json())
-app.use(express.static(__dirname +'/storage'))
+
+/*Rutas estaticas*/
+app.use("/music",express.static(__dirname +'/storage/musics'))
+app.use("/album",express.static(__dirname +'/storage/images'))
 
 app.listen(PORT,function(){ 
     console.log(`*** Server inicializado en http://localhost:${PORT} ***`)
