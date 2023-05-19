@@ -19,7 +19,21 @@
         <p>CATEGORIA</p>
         <input type="category" name="category">
 
-        <input type="submit" value="ENVIAR">
+        <input type="submit" value="ENVIAR" >
     </form>
+
+    <script>
+        const formulario = document.querySelector("form")
+        formulario.addEventListener('submit',(event)=>{
+            event.preventDefault()
+            const formData = new FormData(event.currentTarget)
+            fetch("http://localhost:3010/api/tracks",{
+                method: 'POST',
+                body: formData
+            })
+            console.log("peticion enviada");
+        })
+        
+    </script>
 </body>
 </html>

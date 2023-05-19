@@ -11,9 +11,10 @@
 
 :root {
     --background-nav: #272728;
-    --backround: #3D3A3A;
+    --background: #3D3A3A;
     --color-logo: #FF8080;
     --blue-color: #00D1FF;
     --background-image-pc: url(../../assets/Landing_desk_res.jpg);
     --play-logo: url(../../assets/play.png);
+    --unknown-image: url(../../assets/unknown-image.jpg);
   }

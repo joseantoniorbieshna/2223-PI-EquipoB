@@ -5,3 +5,7 @@ export default function getBaseUrl() {
 export  function getURLMusic() {
     return `${import.meta.env.VITE_ENDPOINT_SERVER}/music`;
 }
+
+export  function getURLAlbum() {
+    return `${import.meta.env.VITE_ENDPOINT_SERVER}/album`;
+}
