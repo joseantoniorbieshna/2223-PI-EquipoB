@@ -10,7 +10,7 @@ import playButton from "../assets/images/play-square.png"
 import pauseButton from "../assets/images/pause-square.png"
 
 export default function MusicContainer(){
-    const  [reproductor,setReproductor]= useState({name:"unknown",artist:"unknown"})
+    const [reproductor,setReproductor]= useState({name:"unknown",artist:"unknown"})
     const[isplay,setPlay]=useState(false)
     const [songs,setSongs] = useState([])
     const session = getCookie()?true:false;
@@ -66,7 +66,7 @@ export default function MusicContainer(){
                     </div>
 
                     <button className="play_button"  onClick={(event)=>{ playController(event,isplay,setPlay) }}>
-                        {isplay?<img src={playButton}/>:<img src={pauseButton}/>}</button>
+                        {!isplay?<img src={playButton}/>:<img src={pauseButton}/>}</button>
                     <input type="range" defaultValue={100} className="slider" onChange={volumeController}/>
                 </div>
                     <audio src="https://manzdev.github.io/codevember2017/assets/eye-tiger.mp3" preload="auto"></audio>

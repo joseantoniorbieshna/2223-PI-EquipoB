@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import unkwnownImage from "../assets/images/unknown-image-pocha.jpg"
 
+import playButton from "../assets/images/play-square.png"
 
 export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,setPlay,setReproductor}){
     const [myImage,setImage] = useState()
@@ -18,8 +19,6 @@ export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,se
 
     return(
         <div className="song_container"  style={{ backgroundImage: `url(${myImage})`} }>
-                <p className="song_title"  >{nameSong}</p>
-                <p className="song_artist"  >{nameArtist}</p>
                 <button onClick={async ()=>{
                     let sonido= document.querySelector("audio");
                     sonido.src =linkSong;
@@ -29,7 +28,11 @@ export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,se
                         name:nameSong,
                         artist:nameArtist
                     })
-                }} >PLAY</button>
+                }} className="play_button"> <img src={playButton}></img> </button>
+                <div className="song_info">
+                    <p className="song_title"  >{nameSong}</p>
+                    <p className="song_artist"  >{nameArtist}</p>
+                </div>
         </div>
     )
 }
