@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import unkwnownImage from "../assets/unknown-image-pocha.jpg"
+import unkwnownImage from "../assets/images/unknown-image-pocha.jpg"
 
 
-export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,setPlay}){
+export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,setPlay,setReproductor}){
     const [myImage,setImage] = useState()
 
     const comprobarImagen = async ()=>{
@@ -25,6 +25,10 @@ export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,se
                     sonido.src =linkSong;
                     sonido.load()
                     setPlay(false)
+                    setReproductor({
+                        name:nameSong,
+                        artist:nameArtist
+                    })
                 }} >PLAY</button>
         </div>
     )

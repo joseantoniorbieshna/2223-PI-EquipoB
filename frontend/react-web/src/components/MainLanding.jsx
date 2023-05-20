@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import playLogo from "../assets/play.png"
+import playLogo from "../assets/images/play.png"
 import Login from "./LoginRegister";
 import LoginRegister from "./LoginRegister";
 
