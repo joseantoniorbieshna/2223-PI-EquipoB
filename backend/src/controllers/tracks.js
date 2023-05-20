@@ -1,4 +1,5 @@
 import tracksModel from '../models/tracks.js'
+import { comprobarYBorrarArchivos } from '../utils/handlerFile.js';
 
 export async function getTracks (req,res){
     console.log("peticion obtener todos los tracks");
@@ -26,8 +27,7 @@ export async function getTracksBySearch (req,res){
 export async function createTrack(req,res){
     console.log("peticion crear tracks");
     const {files,body} = req
-    const {name,artist,category,album} = body
-    console.log(body);
+    const {name,artist,category} = body
 
     /*COMPROBACIÓN*/
     if(name && artist && files["song"] && files["album"] && category){
@@ -36,9 +36,11 @@ export async function createTrack(req,res){
             res.send({data})
             return
         }catch{
-            res.send({err:"error al crear track"})
-            return
+            console.log("error al crear track");
         }
     }
-    res.send({err:"err falta algun dato"})
+
+    comprobarYBorrarArchivos([files["song"],files["album"]])
+
+    res.status(500).send({data:"err falta algun dato"})
 }

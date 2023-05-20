@@ -13,12 +13,13 @@ const storage = multer.diskStorage({
 
         const ext = file.originalname.split(".").pop();
         
-        
         let pathStorage
-        if(ext=="mp3"){
+        if(file.fieldname=="song"){
             pathStorage = `${__dirname}/../storage/musics`
-        }else{
+        }else if(file.fieldname=="album"){
             pathStorage = `${__dirname}/../storage/images`
+        }else{
+            pathStorage = `${__dirname}/../storage`
         }
 
 
@@ -33,5 +34,17 @@ const storage = multer.diskStorage({
 })
 
 
-const uploadMiddleware = multer({storage})
+function fileFilter(req, file, callback){
+    const ext = file.originalname.split(".").pop()
+    if(file.fieldname=='song' && (ext=="mp3" )){
+        callback(null, true)
+    }else if(file.fieldname=='album' && (ext=="png" || ext=="jpg")){
+        callback(null, true)
+    }else{
+        callback(null,false)
+    }
+    
+}
+
+const uploadMiddleware = multer({storage,fileFilter})
 export default uploadMiddleware

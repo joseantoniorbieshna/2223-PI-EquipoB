@@ -12,11 +12,11 @@ import useTracks from "../hooks/useTracks";
 
 export default function MusicContainer(){
     const [tracks,setTracks,setFirstTracks] = useTracks([])
-    
     const [reproductor,setReproductor]= useState({name:"unknown",artist:"unknown"})
     const[isplay,setPlay]=useState(false)
+
+    
     const session = getCookie()?true:false;
-    /*TRAER CANCIONES*/
 
     useEffect(()=>{
         setFirstTracks()
