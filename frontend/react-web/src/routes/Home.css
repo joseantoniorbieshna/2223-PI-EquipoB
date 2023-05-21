@@ -84,8 +84,14 @@ main{
 .categorias ol li{
   text-align: left;
   font-size: 2rem;
+  cursor: pointer;
 }  
-
+.categorias ol li:hover{
+  color: black;
+}
+.categorias ol li:active{
+  color: var(--background);
+}  
 
 .mybuscador{
   position: fixed;

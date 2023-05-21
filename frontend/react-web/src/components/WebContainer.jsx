@@ -1,20 +1,24 @@
+import SongContainer from "./SongContainer";
+import SearchForm from "./SearchForm";
+import Categories from "./Categories";
+
 import {Navigate} from "react-router-dom"
 import {getCookie} from "../utils/cookies"
-import SongContainer from "./SongContainer";
 import { useState,useEffect } from "react";
 import {getURLMusic,getURLAlbum} from "../utils/utils"
 import {volumeController,playController} from "../controller/audioController"
-
-import playButton from "../assets/images/play-square.png"
-import pauseButton from "../assets/images/pause-square.png"
-import SearchForm from "./SearchForm";
 import useTracks from "../hooks/useTracks";
 
-export default function MusicContainer(){
-    const [tracks,setTracks,setFirstTracks] = useTracks([])
-    const [reproductor,setReproductor]= useState({name:"unknown",artist:"unknown"})
-    const[isplay,setPlay]=useState(false)
+/*IMAGES*/
+import playButton from "../assets/images/play-square.png"
+import pauseButton from "../assets/images/pause-square.png"
 
+export default function WebContainer(){
+    const [tracks,setTracks,setFirstTracks] = useTracks([])
+    const[isplay,setPlay]=useState(false)
+    const [reproductor,setReproductor]= useState({name:"unknown",artist:"unknown"})
+    
+    const categories = ["pop","rock","techno","reggaeton"]
     
     const session = getCookie()?true:false;
 
@@ -27,14 +31,10 @@ export default function MusicContainer(){
     <main>
         {!session &&( <Navigate to="/" replace={true} />)}
 
-    <div className="categorias">
-        <h1>CATEGORIAS</h1>
-        <ol>
-            <li>POP</li>
-            <li>ELECTRO</li>
-            <li>...</li>
-        </ol>
-    </div>
+    <Categories setTracks={setTracks}> </Categories>
+
+
+
     <div className="music_manage_container">
         <SearchForm setTracks={setTracks}></SearchForm>
         <div className="music_container">

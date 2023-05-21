@@ -1,4 +1,4 @@
-import getURI, { getURLTracks } from "../utils/utils"
+import getURI, { getURLTracks, getURLTracksCategory } from "../utils/utils"
 import {saveCookie} from "../utils/cookies"
 import { Navigate } from "react-router-dom";
 import { loginUser } from "./queryUser";
@@ -27,5 +27,14 @@ export async function getTracksBySearch(search){
     }
 
     return getTracks()
+
+}
+
+
+export async function getTracksByCategory(category){
+    
+    const response = await fetch(`${getURLTracksCategory()}/${category}`)
+    const data = await response.json()
+    return data
 
 }

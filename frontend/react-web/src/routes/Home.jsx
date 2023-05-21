@@ -1,5 +1,6 @@
 import Header from "../components/Header";
-import MusicContainer from "../components/MusicContainer";
+import WebContainer from "../components/WebContainer";
+import MusicContainer from "../components/WebContainer";
 import "./Home.css"
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
   return (
     <>
     <Header/>
-    <MusicContainer/>
+    <WebContainer/>
     </>
   )
 }

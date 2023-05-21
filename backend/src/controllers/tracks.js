@@ -12,6 +12,14 @@ export async function getTracksById (req,res){
     const data = await tracksModel.find({id: req.params.id})
     res.send({data})
 }
+export async function getTracksByCategory (req,res){
+    const category = req.params.category.toLowerCase()
+    
+    console.log(`Obtener track by category: ${category} `);
+    const data = await tracksModel.find({category: category})
+    res.send({data})
+}
+
 
 export async function getTracksBySearch (req,res){
     const {query} = req

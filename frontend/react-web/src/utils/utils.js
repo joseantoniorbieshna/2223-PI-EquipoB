@@ -5,6 +5,9 @@ export default function getBaseUrl() {
 export  function getURLTracks() {
     return `${getBaseUrl()}/tracks`;
 }
+export  function getURLTracksCategory() {
+    return `${getURLTracks()}/category`;
+}
 export  function getURLMusic() {
     return `${import.meta.env.VITE_ENDPOINT_SERVER}/music`;
 }
