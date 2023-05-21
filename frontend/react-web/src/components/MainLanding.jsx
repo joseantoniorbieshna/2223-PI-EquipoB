@@ -3,19 +3,15 @@ import playLogo from "../assets/images/play.png"
 import Login from "./LoginRegister";
 import LoginRegister from "./LoginRegister";
 
-import { getCookie } from "../utils/cookies";
-import { Navigate } from "react-router-dom";
-
 export default function MainLanding(){
     const [miValue,setValue] = useState("None");
     const [isVisibility,setVisibility] = useState(false);
     
     const togleVisibility = ()=>{isVisibility?setVisibility(false):setVisibility(true)}
     
-    const session = getCookie()?true:false;
+
     return(
     <>
-            {session &&( <Navigate to="/home" replace={true} />)}
             <LoginRegister miTipo={miValue} isVisibility={isVisibility} togleVisibility={togleVisibility}></LoginRegister>
 
             <div className="container">

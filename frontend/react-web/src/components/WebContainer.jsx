@@ -2,8 +2,6 @@ import SongContainer from "./SongContainer";
 import SearchForm from "./SearchForm";
 import Categories from "./Categories";
 
-import {Navigate} from "react-router-dom"
-import {getCookie} from "../utils/cookies"
 import { useState,useEffect } from "react";
 import {getURLMusic,getURLAlbum} from "../utils/utils"
 import {volumeController,playController} from "../controller/audioController"
@@ -20,7 +18,7 @@ export default function WebContainer(){
     
     const categories = ["pop","rock","techno","reggaeton"]
     
-    const session = getCookie()?true:false;
+
 
     useEffect(()=>{
         setFirstTracks()
@@ -29,7 +27,6 @@ export default function WebContainer(){
 
     return(
     <main>
-        {!session &&( <Navigate to="/" replace={true} />)}
 
     <Categories setTracks={setTracks}> </Categories>
 

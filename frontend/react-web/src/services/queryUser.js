@@ -46,3 +46,16 @@ export async function loginUser(userData,passwordData){
             }
     }
 }
+
+
+export async function getUserById(id){
+    try{
+        const response = await fetch(`${getURI()}/users/id/${id}`)
+        let data = await response.json()
+        if(data){
+            return data.data.user
+        }
+    }catch{
+        return ""
+    }
+}

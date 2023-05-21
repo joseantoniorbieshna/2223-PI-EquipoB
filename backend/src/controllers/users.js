@@ -28,10 +28,8 @@ const getUserById = async (req,res)=>{
         res.send({data})
         return
     }catch(err){
-        res.send({error:"Error al buscar usuario"})
-        console.log(err);
-        return
     }
+    res.send({data:[]})
 }
 /**
  *  OBTENER UN UNICO USER
