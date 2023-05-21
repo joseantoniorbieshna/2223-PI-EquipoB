@@ -40,8 +40,8 @@ export default function MusicContainer(){
         <div className="music_container">
             {tracks.map((value,index)=>{
                 const linkSong=`${getURLMusic()}/${value.song}`
-                const linkAlbum=`${getURLAlbum()}/${value.album}`
-                return <SongContainer nameSong={value.name} nameArtist={value.artist} linkSong={linkSong} linkAlbum={linkAlbum} 
+                const linkImg=`${getURLAlbum()}/${value.img}`
+                return <SongContainer nameSong={value.name} nameArtist={value.artist} linkSong={linkSong} linkImg={linkImg} 
                 setPlay={setPlay} setReproductor={setReproductor} key={index}></SongContainer>
             })}
 

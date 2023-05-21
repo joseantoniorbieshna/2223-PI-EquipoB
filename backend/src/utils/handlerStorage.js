@@ -10,13 +10,12 @@ const __dirname = path.dirname(__filename);
 
 const storage = multer.diskStorage({
     destination:function(req,file,callback){
-
         const ext = file.originalname.split(".").pop();
         
         let pathStorage
         if(file.fieldname=="song"){
             pathStorage = `${__dirname}/../storage/musics`
-        }else if(file.fieldname=="album"){
+        }else if(file.fieldname=="img"){
             pathStorage = `${__dirname}/../storage/images`
         }else{
             pathStorage = `${__dirname}/../storage`
@@ -38,7 +37,7 @@ function fileFilter(req, file, callback){
     const ext = file.originalname.split(".").pop()
     if(file.fieldname=='song' && (ext=="mp3" )){
         callback(null, true)
-    }else if(file.fieldname=='album' && (ext=="png" || ext=="jpg")){
+    }else if(file.fieldname=='img' && (ext=="png" || ext=="jpg")){
         callback(null, true)
     }else{
         callback(null,false)

@@ -5,12 +5,12 @@ import unkwnownImage from "../assets/images/unknown-image-pocha.jpg"
 
 import playButton from "../assets/images/play-square.png"
 
-export default function SongContainer({nameSong,nameArtist,linkSong,linkAlbum,setPlay,setReproductor}){
+export default function SongContainer({nameSong,nameArtist,linkSong,linkImg,setPlay,setReproductor}){
     const [myImage,setImage] = useState()
 
     const comprobarImagen = async ()=>{
-        const res = await fetch(linkAlbum)
-        res.status==200?setImage(linkAlbum):setImage(unkwnownImage)
+        const res = await fetch(linkImg)
+        res.status==200?setImage(linkImg):setImage(unkwnownImage)
     }
 
     useEffect( ()=>{

@@ -9,10 +9,11 @@ const tracksSchema = new mongoose.Schema(
         type: String
     },
     category:{
-        type:String
+        type: String,
+        enum: ["pop","rock","techno","reggaeton"]
     }
     ,
-    album:{
+    img:{
         type: String
     },
     song:{

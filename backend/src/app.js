@@ -1,5 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import multer from 'multer';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // si importas con comillas->Es un archivo
@@ -36,4 +37,19 @@ try{
     console.log(err)
 }
 
+/*Manejador rutas*/
 app.use('/api',handlerRoutes)
+
+
+
+/*Controlar errores*/
+app.use(function(err, req, res, next) {
+    if (err instanceof multer.MulterError) {
+        console.error("Error en multer");
+        res.status(500).send({data:'Something broke!'});
+      } else if(err){
+        console.error(err.stack);
+        res.status(500).send({data:err.stack});
+      }
+});
+  

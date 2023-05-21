@@ -90,11 +90,11 @@ main{
 .mybuscador{
   position: fixed;
   top: 15%;
-  left: 30%;
+  left: 37.5vw;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 65vw;
+  width: 50vw;
   z-index: 10;
 }
 .mybuscador input{
@@ -102,7 +102,8 @@ main{
   border: 0;
 }
 .mybuscador .texto{
-  width: 80%;
+  width: 79vw;
+  padding-left: 1vw;
 }
 .mybuscador .enviar{
   background-color: white;
@@ -194,13 +195,13 @@ main{
 
 .reproductor{
   position: fixed;
-  bottom: 3%;
+  bottom: 5%;
   left: 30%;
   display: grid;
-  height: 15%;
+  height: 13.5%;
   width: 65%;
   background-color: var(--background-nav);
-  border-radius: 60px;
+  border-radius: 10000px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 100%;
 
@@ -213,6 +214,14 @@ main{
 
 .reproductor .music_info{
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+}
+.reproductor .music_info>*{
+  color: white;
+  margin: 0;
 }
 
 

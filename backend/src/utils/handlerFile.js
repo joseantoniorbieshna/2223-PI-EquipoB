@@ -8,7 +8,7 @@ export function comprobarYBorrarArchivos(archivos){
             let pathDirectory=archivo[0].path;
             try {
                 fs.unlinkSync(pathDirectory);
-                console.log("Algun campo no ha sido puesto o es invalido. Archivo introducido borrado con exito!!");
+                console.log("Archivo introducido borrado con exito!!");
               } catch (error) {
                 console.log(error);
               }

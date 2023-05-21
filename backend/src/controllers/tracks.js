@@ -27,20 +27,26 @@ export async function getTracksBySearch (req,res){
 export async function createTrack(req,res){
     console.log("peticion crear tracks");
     const {files,body} = req
-    const {name,artist,category} = body
+    let {name,artist,category} = body
+    const {song,img} = files
 
     /*COMPROBACIÓN*/
-    if(name && artist && files["song"] && files["album"] && category){
+    if(name && artist && song && img && category){
         try{
-            const data = await tracksModel.create({name: name,artist: artist,category: category,song: files.song[0].filename, album: files.album[0].filename})
+            category = category.toLowerCase()
+            const data = await tracksModel.create({name: name,artist: artist,category: category, song: song[0].filename, img: img[0].filename})
             res.send({data})
             return
         }catch{
-            console.log("error al crear track");
+            comprobarYBorrarArchivos([song,img])
+            console.log("Algun campo no es invalio.");
+            res.status(500).send({data:"error algun dato es invalido"})
+            return
         }
     }
 
-    comprobarYBorrarArchivos([files["song"],files["album"]])
-
+    comprobarYBorrarArchivos([song,img])
+    console.log("Algun campo no ha sido introducido.");
     res.status(500).send({data:"err falta algun dato"})
+    return
 }

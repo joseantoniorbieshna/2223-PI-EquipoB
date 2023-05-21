@@ -6,6 +6,6 @@ const router = express.Router()
 
 router.get("/search",getTracksBySearch)
 router.get("/",getTracks)
-router.post("/",uploadMiddleware.fields([{name:"song", maxCount:1},{name:"album", maxCount:1}]),createTrack)
+router.post("/",uploadMiddleware.fields( [{name:"song", maxCount:1},{name:"img", maxCount:1}] ),createTrack)
 
 export default router
