@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import WebContainer from "../components/WebContainer";
-import "./Home.css"
+// import "./Home.css"
+import "./Home-mobile.css"
 import {getCookie} from "../utils/cookies"
 import useSession from "../hooks/useSession";
 import { useEffect } from "react";
