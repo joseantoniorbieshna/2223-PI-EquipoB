@@ -4,14 +4,8 @@ import Categories from "./Categories";
 
 import { useState,useEffect } from "react";
 import {getURLMusic,getURLAlbum} from "../utils/utils"
-import {volumeController,playController} from "../controller/audioController"
 import useTracks from "../hooks/useTracks";
-
-/*IMAGES*/
-import playButton from "../assets/images/play-square.png"
-import pauseButton from "../assets/images/pause-square.png"
-import moveSong from "../assets/images/move-song.png"
-import volumeImg from "../assets/images/volume.png"
+import Reproductor from "./Reproductor";
 
 export default function WebContainer(){
     const [tracks,setTracks,setFirstTracks] = useTracks([])
@@ -19,14 +13,6 @@ export default function WebContainer(){
     const [reproductor,setReproductor]= useState({name:"unknown",artist:"unknown"})
     
     const categories = ["pop","rock","techno","reggaeton"]
-    
-    const changeVolume = (number,isplay)=>{
-        const myAudio = document.querySelector("audio")
-        myAudio.currentTime+=number;
-        if(number<0 && isplay){
-            myAudio.play()
-        }
-    }
 
     useEffect(()=>{
         setFirstTracks()
@@ -54,26 +40,7 @@ export default function WebContainer(){
 
             <div className="bottom_gap"></div>
         </div>
-        <div className="reproductor">
-            <div className="music_info">
-                <h1>{reproductor.name}</h1>
-                <h3>{reproductor.artist}</h3>
-            </div>
-
-            <div className="control_music">
-                <button onClick={(event)=>{changeVolume(-5,isplay)}} className="left_move"><img src={moveSong}/></button>
-
-                <button className="play_button"  onClick={(event)=>{ playController(event,isplay,setPlay) }}>
-                    {!isplay?<img src={playButton}/>:<img src={pauseButton}/>}</button>
-                <button  onClick={(event)=>{changeVolume(+5,isplay)}} className="right_move"><img src={moveSong}/></button>
-            </div>
-
-            <div className="volume_controller">
-                <img className="speaker_img" src={volumeImg}  />
-            <input type="range" defaultValue={100} className="slider" onChange={volumeController}/>
-            </div>
-        </div>
-            <audio src="https://manzdev.github.io/codevember2017/assets/eye-tiger.mp3" preload="auto"></audio>
+            <Reproductor isplay={isplay} setPlay={setPlay} reproductor={reproductor}></Reproductor>
     </div>
 </main>
 )
