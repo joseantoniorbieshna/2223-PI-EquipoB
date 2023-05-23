@@ -19,8 +19,14 @@ export default function Landing() {
     <>
     {/*Si hay session y es diferente de no login, redirigir al home*/}
     {session && session!="no login" &&( <Navigate to="/home" replace={true} />)}
-    <Header></Header>
-    <MainLanding></MainLanding>
+
+    {session=="no login" &&(
+    <>
+      <Header></Header>
+      <MainLanding></MainLanding>
+    </>
+    )}
+
     </>
   )
 }

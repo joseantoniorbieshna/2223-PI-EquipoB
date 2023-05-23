@@ -7,17 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="http://localhost:3010/api/tracks" method="post">
+    <form action="http://localhost:3010/api/tracks" method="post" id="send_song">
         <p>CANCION</p>
         <input type="file" name="song">
         <p>ALBUM</p>
-        <input type="file"  name="album">
+        <input type="file"  name="img">
         <p>NOMBRE CANCION</p>
         <input type="text" name="name">
         <p>ARTISTA</p>
         <input type="text" name="artist">
         <p>CATEGORIA</p>
-        <input type="category" name="category">
+        <label for="category"></label>
+        <select name="category" id="cars" form="send_song">
+            <option value="pop">pop</option>
+            <option value="rock">rock</option>
+            <option value="techno">techno</option>
+            <option value="reggaeton">reggaeton</option>
+          </select>
 
         <input type="submit" value="ENVIAR" >
     </form>
@@ -32,6 +38,7 @@
                 body: formData
             })
             console.log("peticion enviada");
+            event.currentTarget.reset()
         })
         
     </script>

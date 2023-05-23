@@ -14,7 +14,7 @@ export async function getTracksById (req,res){
 }
 export async function getTracksByCategory (req,res){
     const category = req.params.category.toLowerCase()
-    
+
     console.log(`Obtener track by category: ${category} `);
     const data = await tracksModel.find({category: category})
     res.send({data})
@@ -37,7 +37,7 @@ export async function createTrack(req,res){
     const {files,body} = req
     let {name,artist,category} = body
     const {song,img} = files
-
+    console.log(req.body);
     /*COMPROBACIÓN*/
     if(name && artist && song && img && category){
         try{

@@ -64,24 +64,36 @@ header a .logo_play{
 
 /*MENU HEADER*/
 header ul {
+  margin:0;
   width: fit-content;
   display: flex;
+  align-items: center;
   flex-direction: row;
   height: fit-content;
   align-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  height: 100%;
 }
 header ul li{
-  font-size: 1.3rem;
+  padding: auto;
   list-style: none;
   display: block;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  flex: 1 1 auto;
+  font-size: 1.5rem;
+  padding: 0.25rem;
 }
 header ul .close_session{
+  font-size: 1rem;
+  padding: 0.5rem;
+
   cursor: pointer;
+  background-color: gray;
+  margin: 1rem;
 }
 header ul .close_session:hover{
   color: black;
+  background-color: white;
 }
 
 /*CONTENT*/
@@ -90,7 +102,7 @@ header ul .close_session:hover{
 main{
   display: flex;
   height: 90vh;
-  }
+}
 
 .categorias{
   display: inline-block;
@@ -100,10 +112,14 @@ main{
   width: 25vw;
   overflow: overlay;
 }
+.categorias ol{
+  padding: 0;
+}
 
 .categorias ol li{
   list-style: none;
-  padding: 0 0 2rem 0;
+  margin: 0 0 2rem 0;
+  padding: 0 1rem;
   text-align: left;
   font-size: 2rem;
   cursor: pointer;
@@ -115,15 +131,25 @@ main{
   color: var(--background);
 }  
 
-.mybuscador{
+/*BUSCADOR*/
+.search_container{
+  z-index: 40;
+  background-color: var(--background);
   position: fixed;
-  top: 15%;
-  left: 37.5vw;
+  height: 10%;
+  width: 100%;
+  top:10%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mybuscador{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 50vw;
-  z-index: 10;
 }
 .mybuscador input{
   padding: 2px;
@@ -141,6 +167,8 @@ main{
 }
 
 
+
+
 .music_manage_container{
   display: flex;
   flex-direction: column;
@@ -153,12 +181,11 @@ main{
 }
 .music_container{
   padding: 15vh 5vw 0 5vw;
-
+  z-index: 50;
 
   height: 100%;
   width: 65vw;
   overflow: overlay;
-
 
 
   display: grid;
@@ -168,9 +195,10 @@ main{
 
   align-items: center;
   justify-items: center;
-
 }
-
+.music_container div:first-child {
+  grid-column: 1 / -1; /* El primer y último elemento ocupan todas las columnas */
+}
 .music_container div:last-child {
   grid-column: 1 / -1; /* El primer y último elemento ocupan todas las columnas */
 }
@@ -186,19 +214,20 @@ main{
   width: 15rem;
 }
 .song_container .play_button{
-  width: 5rem;
-  height: 5rem;
-  border: 1px solid black;
+  z-index: 30;
   position: relative;
   top: 35%;
   left: 35%;
   background-color: #d3d3d300;
-
+}
+.song_container .play_button,.song_container .play_button img{
+  width: 5rem;
+  height: 5rem;
 }
 .song_container .play_button img{
-  width: 100%;
-  height: 100%;
+  border:solid 1px black;
 }
+
 .song_container .play_button:active {
   opacity: 70%;
 }
@@ -222,6 +251,7 @@ main{
 /*-----------------*/
 
 .reproductor{
+  z-index: 100;
   position: fixed;
   bottom: 5%;
   left: 30%;
@@ -237,11 +267,13 @@ main{
   justify-items: center;
   align-items: center;
 
+  min-height: 5.5rem;
 }
 
 
 .reproductor .music_info{
-  margin-left: 1rem;
+  justify-self: left;
+  margin-left: 4vw;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -258,24 +290,54 @@ main{
 
 
 /*NAV MUSIC*/
-.play_button{
-  height: 50%;
+.control_music{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+.play_button,.play_button img{
+  height: 4rem;
+  width: 4rem;
   padding: 0;
   border-radius: 10000px;
   border: 0;
 }
-.play_button img{
-  width: 100%;
-  height: 100%;
-  border-radius: 10000px;
+
+.left_move,.right_move{
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
+.left_move, .left_move img{
+  transform: rotate(90deg);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1000rem;
+}
+.right_move, .right_move img{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1000rem;
+}
 
 /*SLIDER*/
+.volume_controller{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.volume_controller img{
+  width: 2.5rem;
+  height: 2.5rem;
+}
 
 .slider {
   -webkit-appearance: none;
-  border-radius: 5px;  
+  border-radius: 5px;
+  height: 15px;  
   background: #d3d3d3;
   overflow: hidden;
   outline: none;
@@ -284,11 +346,14 @@ main{
   transition: opacity .2s;
 }
 
+
+
+/*Barra lateral*/
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 25px;
+  width: 10px;
+  height: 15px;
   background: black;
   cursor: pointer;
   box-shadow: -200px 0 0 190px var(--red-color); /* 2 */

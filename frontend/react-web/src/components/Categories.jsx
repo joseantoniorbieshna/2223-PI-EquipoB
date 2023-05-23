@@ -15,7 +15,7 @@ export default function Categories({setTracks}){
                 return <li key={index} onClick={ async ()=>{
                     const data = await getTracksByCategory(category)
                     setTracks(data.data)
-                }} >{category}</li>
+                }} >{category.toUpperCase()}</li>
                 
             })
             }
