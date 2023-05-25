@@ -4,12 +4,12 @@ import { useState } from "react";
 import unkwnownImage from "../assets/images/unknown-image-pocha.jpg"
 
 import playButton from "../assets/images/play-square.png"
+import useMobile from "../hooks/useMobile";
 
 export default function SongContainer({nameSong,nameArtist,linkSong,linkImg,setPlay,setReproductor}){
     const [myImage,setImage] = useState()
 
-    const withValueScreen=1000
-    const [isMobile,setIsMobile] = useState(window.innerWidth < withValueScreen?true:false)
+    const [isMobile,getIsMobile] = useMobile()
 
     const comprobarImagen = async ()=>{
         const res = await fetch(linkImg)
@@ -19,16 +19,15 @@ export default function SongContainer({nameSong,nameArtist,linkSong,linkImg,setP
     useEffect( ()=>{
         comprobarImagen()
 
-        window.addEventListener("resize",()=>{
-            window.innerWidth < withValueScreen?setIsMobile(true):setIsMobile(false)
-        })
+        getIsMobile()
+        window.addEventListener("resize",()=>{getIsMobile()})
 
     },[])
 
     return(
     <>
     {!isMobile &&(
-        <div className="song_container"  style={{ backgroundImage: `url(${myImage})`} }>
+<div className="song_container"  style={{ backgroundImage: `url(${myImage})`} }>
                 <button onClick={async ()=>{
                     let sonido= document.querySelector("audio");
                     sonido.src =linkSong;

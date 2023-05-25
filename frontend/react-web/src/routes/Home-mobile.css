@@ -10,6 +10,7 @@ img{
 html,body,#root{
   margin: 0;
   height: 100vh;
+  overflow: hidden;
 }
 #root{
 display: flex;
@@ -101,12 +102,14 @@ height: 93vh;
 
 .music_container{
 z-index: 50;
-position: sticky;
+position: fixed;
+width: 100%;
 height: 100%;
 overflow: overlay;
 }
 /*BUSCADOR*/
 .mybuscador{
+  z-index: 100;
   margin: 0;
   width: 100%;
   height: 10vh;
@@ -184,14 +187,114 @@ hr{
   background-color: var(--color-logo);
   width: 85%;
 }
+.bottom_gap{
+  height: 20vh;
+}
+/*MUSIC MENU MOBILE*/
+.mobile_container{
+  display: none;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  /* top: 0; */
+  /* bottom: 10; */
+  right: 0;
+  background-color: var(--background-nav);
+}
+.mobile_foto_container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 50vh;
+  background-color: pink;
+}
+.mobile_foto_container img{
+  padding: 5vh 5vw;
+  width: 40vh;
+  height: 40vh;
+}
+/*Reproductor*/
+.reproductor_mobile{
+  width: 100vw;
+  height: 50vh;
+}
+.reproductor_mobile .music_info {
+  width: 100%;
+  height: 50%;
+}
+.reproductor_mobile .music_info *{
+  margin: 0;
+  padding: 10px;
+}
+.reproductor_mobile .music_info h1{
+  padding-top: 2rem;
+  padding-left: 10vw;
+  font-size: 3rem;
+}
+.reproductor_mobile .music_info h3{
+  padding-left: 10vw;
+  font-size: 1.5rem;
+  color: var(--color-gray-mid-alpha);
+}
+
+
+.reproductor_mobile .control_music{
+ display: flex;
+ justify-content: center;
+}
+.reproductor_mobile .control_music{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6vw;
+}
+.reproductor_mobile .control_music .left_move, .reproductor_mobile .control_music .left_move img,
+.reproductor_mobile .control_music .right_move, .reproductor_mobile .control_music .right_move img{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 50%;
+}
+.reproductor_mobile .control_music .play_button, .reproductor_mobile .control_music .play_button img{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 6rem;
+  height: 6rem;
+  border: 0;
+  border-radius: 50%;
+}
+.reproductor_mobile .control_music .left_move{
+  transform: rotate(180deg);
+}
+.reproductor_mobile .control_music .left_move{
+  border-radius: 50%;
+}
+
+
 /**/
 img{
 width: 1rem;
 height: 1rem;
 }
-.reproductor{
-display: none;
-}
-.song_container{
-background-size: 0;
+
+
+/* 
+animation-name: rightToLeft;
+animation-duration: 4.5s;
+animation-timing-function: linear;
+animation-iteration-count: infinite; */
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(-160px);
+  }
 }
