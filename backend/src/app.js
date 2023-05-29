@@ -23,7 +23,7 @@ app.use(express.json())
 
 /*Rutas estaticas*/
 app.use("/music",express.static(__dirname +'/storage/musics'))
-app.use("/album",express.static(__dirname +'/storage/images'))
+app.use("/image",express.static(__dirname +'/storage/images'))
 
 app.listen(PORT,function(){ 
     console.log(`*** Server inicializado en http://localhost:${PORT} ***`)

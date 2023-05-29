@@ -13,5 +13,5 @@ export  function getURLMusic() {
 }
 
 export  function getURLAlbum() {
-    return `${import.meta.env.VITE_ENDPOINT_SERVER}/album`;
+    return `${import.meta.env.VITE_ENDPOINT_SERVER}/image`;
 }

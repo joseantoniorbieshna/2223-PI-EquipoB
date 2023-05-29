@@ -172,14 +172,16 @@ background-color: rgb(46, 46, 46);
   width: 40vw;
   margin: 0;
   font-size: 2rem;
-  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .song_container .song_info .song_artist{
   width: 40vw;
   margin: 0;
   font-size: 1rem;
   color: var(--color-gray-mid-alpha);
-  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 hr{
   height: 1px;
