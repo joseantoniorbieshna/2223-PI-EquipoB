@@ -49,7 +49,6 @@ export default function Reproductor({isplay,setPlay, reproductor, linkImg=null})
 
     return(
         <>
-        {!isMobile &&(
         <div className="reproductor">
             <div className="music_info">
                 <h1>{reproductor.name}</h1>
@@ -69,10 +68,9 @@ export default function Reproductor({isplay,setPlay, reproductor, linkImg=null})
             <input type="range" defaultValue={100} className="slider" onChange={volumeController}/>
             </div>
         </div>
-        )}
 
 
-        {isMobile &&(
+        {/* {isMobile &&(
         <div className="mobile_container">
             <div className="mobile_foto_container">
                 <img src={myImage}/>
@@ -92,7 +90,7 @@ export default function Reproductor({isplay,setPlay, reproductor, linkImg=null})
                 </div>
             </div>
         </div>
-        )}
+        )} */}
 
 
         <audio src="https://manzdev.github.io/codevember2017/assets/eye-tiger.mp3" preload="auto"></audio>
