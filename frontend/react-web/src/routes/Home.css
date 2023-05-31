@@ -216,6 +216,7 @@ main{
   width: 15rem;
 }
 .song_container .play_button{
+  cursor: pointer;
   z-index: 30;
   position: relative;
   bottom: 65%;
@@ -223,6 +224,7 @@ main{
   background-color: #d3d3d300;
 }
 .song_container .play_button,.song_container .play_button img{
+  border-radius: 10000px;
   width: 5rem;
   height: 5rem;
 }
@@ -305,8 +307,9 @@ main{
 .play_button,.play_button img{
   height: 4rem;
   width: 4rem;
+  cursor: pointer;
+  border-radius: 100rem;
   padding: 0;
-  border-radius: 10000px;
   border: 0;
 }
 
@@ -315,12 +318,17 @@ main{
   padding: 0;
   border: 0;
 }
+.left_move:active,.right_move:active{
+  transform: scale(0.9);
+}
 
 .left_move, .left_move img{
-  transform: rotate(90deg);
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 1000rem;
+}
+.left_move img{
+  transform: rotate(180deg);  
 }
 .right_move, .right_move img{
   width: 2.5rem;

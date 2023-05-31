@@ -32,7 +32,8 @@ export default function SongContainer({nameSong,nameArtist,linkSong,linkImg,setP
                     let sonido= document.querySelector("audio");
                     sonido.src =linkSong;
                     sonido.load()
-                    setPlay(false)
+                    sonido.play()
+                    setPlay(true)
                     setReproductor({
                         name:nameSong,
                         artist:nameArtist
